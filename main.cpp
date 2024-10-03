@@ -3,9 +3,9 @@
 
 using namespace std;
 int main(){
-    Card A = {1, "A"};
-    Card B;
+    Card A = {2, "A"};
+    Card B(5, "A");
     Card C = {4, "F"};
-    cout << A.rang << " " << A.suit << "\t" << B.rang << " " << B.suit << "\n";
+    cout << (A > B);
 
 }

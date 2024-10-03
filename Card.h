@@ -1,13 +1,18 @@
+#pragma once
 #include <string>
 
 class Card{
 public:
     unsigned short rang;
     std::string suit;
-    std::string rangs[9] = {"6", "7", "8", "9", "10", "J", "Q", "K", "A"};
-    std::string suits[4] = {"diamonds", "hearts", "clubs", "spades"};
+    static unsigned short rangs[9];
+    static std::string suits[4];
     Card();
     Card(unsigned short, std::string);
+    /* bool operator==(const Card &card); */
+    bool operator>(const Card &card);
+    bool operator<(const Card &card);
     ~Card();
+
 
 };
