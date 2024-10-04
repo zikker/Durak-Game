@@ -1,5 +1,7 @@
 #pragma once
 #include "Card.h"
+#include <random>
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -9,5 +11,6 @@ public:
     std::vector<Card> deck;
     Deck();
     void shuffle();
+    void print_deck();
     ~Deck();
 };
