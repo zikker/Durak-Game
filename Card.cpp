@@ -1,7 +1,7 @@
 #include "Card.h"
 
 unsigned short Card::rangs[9] = {6, 7, 8, 9, 10, 11, 12, 13, 14};
-std::string Card::suits[4] = {"diamonds", "hearts", "clubs", "spades"};
+std::string Card::suits[4] = {"d", "h", "c", "s"};
 
 Card::Card(){
     rang = 0;
