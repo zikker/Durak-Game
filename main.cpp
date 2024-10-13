@@ -7,6 +7,4 @@ int main(){
     Card C = {4, "F"};
     Deck deck;
     deck.print_deck();
-
-
 }

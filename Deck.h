@@ -2,6 +2,7 @@
 #include "Card.h"
 #include <iostream>
 #include <deque>
+#include <random>
 #include <vector>
 #include <random>
 #include <algorithm>
