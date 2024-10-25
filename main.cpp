@@ -10,6 +10,4 @@ int main(){
     deck.shuffle();
     cout << "\n\n\n";
     deck.print_deck();
-
-
 }
