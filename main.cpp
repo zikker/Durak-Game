@@ -7,7 +7,4 @@ int main(){
     Card C = {4, "F"};
     Deck deck;
     deck.print_deck();
-    deck.shuffle();
-    cout << "\n\n\n";
-    deck.print_deck();
 }

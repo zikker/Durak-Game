@@ -2,6 +2,13 @@
 
 const int Deck::NUM_OF_CARDS = 36;
 
+void Deck::shuffle(){
+    auto rd = std::random_device {}; 
+    auto rng = std::default_random_engine { rd() };
+    std::shuffle(deck.begin(), deck.end(), rng);
+    trump = deck.back();
+}
+
 Deck::Deck(){
     for(int i = 0; i < 4; i++){
         for(int j = 0; j < 9; j++){
@@ -9,12 +16,12 @@ Deck::Deck(){
             deck.push_back(card);
         }
     }
+    shuffle();
 }
 
-void Deck::shuffle(){
-    auto rd = std::random_device {}; 
-    auto rng = std::default_random_engine { rd() };
-    std::shuffle(deck.begin(), deck.end(), rng);
+Card Deck::front_card(){
+    return deck.front();
+    deck.pop_front();
 }
 
 void Deck::print_deck(){
