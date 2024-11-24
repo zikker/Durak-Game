@@ -7,7 +7,7 @@ public:
     Player(Deck &deck);
     void take_cards();
     void beat_card(Card enemy_card, Card your_card);
-    vector<Card> throw_card(string str_cards);
+    Card throw_card(string str_cards);
     void print_cards();
 private:
     vector<Card> cards;

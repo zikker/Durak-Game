@@ -20,10 +20,15 @@ void Game::move(){
     Player activePlayer = players[pointer_to_player];
     cout << "Cards of Player " << pointer_to_player + 1 << endl;
     activePlayer.print_cards();
-    cout << "Enter cards to attack (format: 6d6s6h)" << endl;
+    cout << "Enter card to attack (format: 6d). To stop enter 'pass'" << endl;
     string str_cards;
     cin  >> str_cards;
-    activePlayer.throw_card(str_cards);
+    while(str_cards != string("pass")){
+        Card temp_card;
+        temp_card = activePlayer.throw_card(str_cards);
+        cin >> str_cards;
+    }
+    
 
 
 

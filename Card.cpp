@@ -58,10 +58,6 @@ Card::Card(std::string str){
 
 }
 
-/* bool Card::operator==(const Card &card){
-    return (rang == card.rang and suit == card.suit);
-} */
-
 bool Card::operator>(const Card &card){
     if (suit == card.suit){
         return (rang > card.rang);
@@ -78,6 +74,10 @@ bool Card::operator<(const Card &card){
     else{
         return false;
     };
+}
+
+bool Card::operator==(const Card &card){
+    return (suit == card.suit and rang == card.rang);
 }
 
 Card::~Card(){
