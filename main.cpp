@@ -1,10 +1,18 @@
-#include "Deck.h"
+#include "Game.h"
 
 using namespace std;
 int main(){
-    Card A = {2, "A"};
-    Card B(5, "A");
-    Card C = {4, "F"};
-    Deck deck;
-    deck.print_deck();
+    while(true){
+        try
+        {
+            string s;
+            cin >> s;
+            Card card(s);
+            cout << card.rang << card.suit << endl;
+        }
+        catch(const std::logic_error &e)
+        {
+            std::cout << e.what() << '\n';
+        }
+    }
 }

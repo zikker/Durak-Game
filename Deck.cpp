@@ -1,7 +1,4 @@
 #include "Deck.h"
-
-const int Deck::NUM_OF_CARDS = 36;
-
 void Deck::shuffle(){
     auto rd = std::random_device {}; 
     auto rng = std::default_random_engine { rd() };
@@ -10,6 +7,7 @@ void Deck::shuffle(){
 }
 
 Deck::Deck(){
+    NUM_OF_CARDS = 36;
     for(int i = 0; i < 4; i++){
         for(int j = 0; j < 9; j++){
             Card card(Card::rangs[j], Card::suits[i]);
@@ -20,8 +18,14 @@ Deck::Deck(){
 }
 
 Card Deck::front_card(){
-    return deck.front();
+    auto tmp_card = deck.front();
     deck.pop_front();
+    NUM_OF_CARDS--;
+    return tmp_card;
+}
+
+Card Deck::back_card(){
+    return deck.back();
 }
 
 void Deck::print_deck(){

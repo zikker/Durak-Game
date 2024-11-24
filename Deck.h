@@ -9,11 +9,12 @@
 
 class Deck{
 public:
-    static const int NUM_OF_CARDS;
+    int NUM_OF_CARDS;
     Card trump;
     Deck();
     Card front_card();
     void print_deck();
+    Card back_card();
     ~Deck();
 private:
     std::deque<Card> deck;
