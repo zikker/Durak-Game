@@ -2,7 +2,7 @@
 
 unsigned short Card::rangs[9] = {6, 7, 8, 9, 10, 11, 12, 13, 14};
 std::string Card::suits[4] = {"d", "h", "c", "s"};
-
+std::string Card::trump_suit = "";
 Card::Card(){
     rang = 0;
     suit = "";
@@ -19,7 +19,7 @@ Card::Card(std::string str){
     else if(tmp != 'd' and tmp != 'h' and tmp != 'c' and tmp != 's'){
         throw std::logic_error("Invalid card");
     }
-    if(str.length() > 3){
+    if(str.length() > 3 or str.length() < 2){
         throw std::logic_error("Invalid card");
     }
     suit = str.back();
@@ -62,11 +62,16 @@ bool Card::operator>(const Card &card){
     if (suit == card.suit){
         return (rang > card.rang);
     }
+    else if (suit == trump_suit){
+        if(card.suit != trump_suit){
+            return true;
+        }
+    }
     else{
         return false;
     }
 }
-
+/*
 bool Card::operator<(const Card &card){
     if (suit == card.suit){
         return (rang < card.rang);
@@ -74,10 +79,32 @@ bool Card::operator<(const Card &card){
     else{
         return false;
     };
-}
+} */
 
 bool Card::operator==(const Card &card){
     return (suit == card.suit and rang == card.rang);
+}
+
+void Card::print_card(){
+    switch (rang)
+        {
+        case 11:
+            std::cout << "J";
+            break;
+        case 12:
+            std::cout << "Q";
+            break;
+        case 13:
+            std::cout << "K";
+            break;
+        case 14:
+            std::cout << "A";   
+            break;
+        default:
+            std::cout << rang;
+            break;
+        }
+        std::cout << suit << ' ' << std::endl;
 }
 
 Card::~Card(){

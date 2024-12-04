@@ -16,18 +16,24 @@ bool Game::end_game(){
     return (players.size() == 1);
 }
 
+// 0 1 2 3
+// 1 2 3 4
 void Game::move(){
-    Player activePlayer = players[pointer_to_player];
-    cout << "Cards of Player " << pointer_to_player + 1 << endl;
-    activePlayer.print_cards();
-    cout << "Enter card to attack (format: 6d). To stop enter 'pass'" << endl;
-    string str_cards;
-    cin  >> str_cards;
-    while(str_cards != string("pass")){
-        Card temp_card;
-        temp_card = activePlayer.throw_card(str_cards);
-        cin >> str_cards;
+    cout << "trump card = ";
+    trump.print_card();
+    Player *activePlayer = &players[pointer_to_player];
+    Player *defendingPlayer = &players[(pointer_to_player + 1) % k_players];
+    cout << "Move of Player " << pointer_to_player + 1 << endl;
+    (*activePlayer).throw_card(cards_to_attack);
+    cout << "Defend of Player " << pointer_to_player + 2 << endl;
+    (*defendingPlayer).beat_card(cards_to_attack);
+    for (int i = (pointer_to_player + 2) % k_players; i != pointer_to_player + 1; i = (i + 1) % k_players){
+        cout << "Player " << i + 1 << " fixing with cards" << endl;
+        players[i].throw_card(cards_to_attack);
     }
+    cout << "Defend of Player " << pointer_to_player + 2 << endl;
+    (*defendingPlayer).beat_card(cards_to_attack);
+    
     
 
 

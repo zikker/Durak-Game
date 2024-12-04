@@ -4,6 +4,7 @@ void Deck::shuffle(){
     auto rng = std::default_random_engine { rd() };
     std::shuffle(deck.begin(), deck.end(), rng);
     trump = deck.back();
+    Card::trump_suit = trump.suit;
 }
 
 Deck::Deck(){

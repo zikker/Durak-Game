@@ -2,12 +2,14 @@
 using namespace std;
 class Player{
 public:
+    static vector<int> valid_rangs;
     const unsigned MAX_CARDS = 6;
     short current_cards;
+    int last_bitted_card;
     Player(Deck &deck);
-    void take_cards();
-    void beat_card(Card enemy_card, Card your_card);
-    Card throw_card(string str_cards);
+    void take_cards(vector<Card> &cards_to_attack, vector<Card> &cards_in_defense);
+    void beat_card(vector<Card> &cards_to_attack);
+    void throw_card(vector<Card> &cards_to_attack);
     void print_cards();
 private:
     vector<Card> cards;
