@@ -46,12 +46,12 @@ Card::Card(std::string str){
         }
     }
     else{
-        int tmp = stoi(str);
-        if(tmp > 10 or tmp < 6){
+        int temp = stoi(str);
+        if(temp > 10 or tmp < 6){
              throw std::logic_error("Invalid card");
         }
         else{
-            rang = tmp;
+            rang = temp;
         }
     }
     
