@@ -92,6 +92,7 @@ void Player::beat_card(vector<Card> &cards_to_attack){
             i--;
         }
     }
+    get_card = false;
 }
 
 void Player::take_cards(vector<Card> &cards_to_attack, vector<Card> &cards_in_defense){
@@ -106,6 +107,7 @@ void Player::take_cards(vector<Card> &cards_to_attack, vector<Card> &cards_in_de
     cards_in_defense.clear();
     valid_rangs.clear();
     print_cards();
+    get_card = true;
 
 }
 
