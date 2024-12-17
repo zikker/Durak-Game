@@ -70,6 +70,7 @@ void Game::move(){
         cout << "Refill all players" << endl;
         for(int i = start_index; ; i = (i + 1) % k_players){
             is_refilled = players[i].refill(deck);
+            cout << "Player " << players[i].number_of_player << " refilled" << endl;
             if(!is_refilled and players[i].current_cards == 0){
                 players[i].is_winner = true;
                 cout << "Player " << i + 1 << " wins" << endl;
