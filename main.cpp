@@ -2,5 +2,5 @@
 
 using namespace std;
 int main(){
-    Game game(4);
+    Game game(3);
 }

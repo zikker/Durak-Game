@@ -53,6 +53,8 @@ bool Player::throw_card(vector<Card> &cards_to_attack){
     return is_threw_card;
 }
 
+
+//Сделать так, чтобы нельзя было подкинуть карты игроку, у которого закончились карты
 void Player::beat_card(vector<Card> &cards_to_attack){
     string temp_str;
     int i = 0;
@@ -135,7 +137,7 @@ bool Player::refill(Deck &deck){
     last_bitted_card = -1;
     cards_in_defense.clear();
     valid_rangs.clear();
-    is_take_cards = false;
+    //is_take_cards = false;
     return refilled;
 }
 

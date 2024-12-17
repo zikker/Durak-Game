@@ -36,12 +36,12 @@ void Game::move(){
         cout << "Defend of Player " << (*defendingPlayer).number_of_player << endl;
         (*defendingPlayer).beat_card(cards_to_attack);
         cout << endl;
-
+        
         //fixing cards
         do
-        {
+        {  
             k_not_passed_players = 0;
-            for (int i = (pointer_to_player + 2) % k_players; i != pointer_to_player + 1; i = (i + 1) % k_players){
+            for (int i = (pointer_to_player + 2) % k_players; i != (pointer_to_player + 1) % k_players; i = (i + 1) % k_players){
                 cout << "Player " << players[i].number_of_player << " fixing with cards" << endl;
                 cout << "trump card = "; 
                 trump.print_card();
@@ -57,7 +57,7 @@ void Game::move(){
                 (*defendingPlayer).beat_card(cards_to_attack);
                 cout << endl;
             }
-        } while (k_not_passed_players > 0);
+        } while (k_not_passed_players > 0 and (*defendingPlayer).current_cards > 0);
 
         if((*defendingPlayer).is_take_cards){
             (*defendingPlayer).take_cards(cards_to_attack);
@@ -85,13 +85,13 @@ void Game::move(){
             }
         }
         cards_to_attack.clear();
-
         if((*defendingPlayer).is_take_cards){
             pointer_to_player = (pointer_to_player + 2) % k_players;
         }
         else{
             pointer_to_player = (pointer_to_player + 1) % k_players;
         }
+        (*defendingPlayer).is_take_cards = false;
 
         cout << "next round " << endl << endl;
     }
